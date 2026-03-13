@@ -1,10 +1,9 @@
-from fastapi import Depends
+from sqlmodel import Session
 
 from app.models.database import ChatSession
-from app.models.engine import get_db
 
 
-def create_session(db = Depends(get_db)):
+def create_session(db: Session):
     new_session = ChatSession()
     db.add(new_session)
     db.commit()

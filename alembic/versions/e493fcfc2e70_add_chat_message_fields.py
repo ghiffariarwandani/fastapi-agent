@@ -1,8 +1,8 @@
-"""create chat session and message tables
+"""add chat message fields
 
-Revision ID: bc3b8ae7c09f
+Revision ID: e493fcfc2e70
 Revises:
-Create Date: 2026-03-08 14:22:08.533757
+Create Date: 2026-03-13 22:58:25.752899
 
 """
 
@@ -14,7 +14,7 @@ import sqlmodel
 
 
 # revision identifiers, used by Alembic.
-revision: str = "bc3b8ae7c09f"
+revision: str = "e493fcfc2e70"
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -26,6 +26,8 @@ def upgrade() -> None:
     op.create_table(
         "chatsession",
         sa.Column("id", sa.Integer(), nullable=False),
+        sa.Column("created_at", sa.DateTime(), nullable=False),
+        sa.Column("title", sqlmodel.sql.sqltypes.AutoString(), nullable=True),
         sa.PrimaryKeyConstraint("id"),
     )
     op.create_table(
@@ -34,6 +36,10 @@ def upgrade() -> None:
         sa.Column("session_id", sa.Integer(), nullable=False),
         sa.Column("role", sqlmodel.sql.sqltypes.AutoString(), nullable=False),
         sa.Column("content", sqlmodel.sql.sqltypes.AutoString(), nullable=False),
+        sa.Column("created_at", sa.DateTime(), nullable=False),
+        sa.Column("message_type", sqlmodel.sql.sqltypes.AutoString(), nullable=False),
+        sa.Column("tool_name", sqlmodel.sql.sqltypes.AutoString(), nullable=True),
+        sa.Column("tool_call_id", sqlmodel.sql.sqltypes.AutoString(), nullable=True),
         sa.ForeignKeyConstraint(
             ["session_id"],
             ["chatsession.id"],

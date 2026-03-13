@@ -5,6 +5,7 @@ requires-python = ">=3.14"
 dependencies = [
     "aisqlite>=1.1.0",
     "alembic>=1.18.4",
+    "ddgs>=9.11.3",
     "fastapi>=0.135.1",
     "greenlet>=3.3.2",
     "openai-agents[litellm]>=0.10.5",
