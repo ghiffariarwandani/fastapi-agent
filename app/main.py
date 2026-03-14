@@ -4,6 +4,7 @@ from scalar_fastapi import get_scalar_api_reference
 
 from app.modules.chats.router import chat_router
 from app.modules.sessions.router import session_router
+from app.modules.uploads.router import upload_router
 
 app = FastAPI()
 
@@ -16,6 +17,7 @@ app.add_middleware(
 
 app.include_router(chat_router)
 app.include_router(session_router)
+app.include_router(upload_router)
 
 
 @app.get("/scalar")
