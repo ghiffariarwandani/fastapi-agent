@@ -2,6 +2,10 @@
 
 Bootcamp assignment project: FastAPI chat agent with session-based conversation history, streaming responses (SSE), and a web search tool.
 
+## Monorepo Note
+
+This backend now lives in `apps/backend`. Run the commands below from that directory.
+
 ## What This Project Does
 
 - Manages chat **sessions** (`ChatSession`) and **messages** (`ChatMessage`) in a SQLite database.
@@ -129,4 +133,3 @@ What AI was used for:
 - Improving docs and API contracts (what endpoints exist and how to call them).
 
 The final code was iteratively integrated and tested locally while ensuring I understand the reasoning behind each change.
-

@@ -1,0 +1,13 @@
+{
+  "name": "fastapi-agent",
+  "private": true,
+  "packageManager": "pnpm@10.18.1",
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:be": "cd apps/backend && uv run uvicorn app.main:app --reload",
+    "dev:fe": "cd apps/frontend && pnpm dev"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0"
+  }
+}
